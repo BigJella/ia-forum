@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 50px;
+}
+
+.logo {
+  background-image:url('https://www.fultonschools.org/cms/lib/GA50000114/Centricity/Template/GlobalAssets/images//logos/Phoenix_IA_Only_Small-cropped.jpg')
+  
+}
+
+.signIn {
+  font-size: large;
+}
+
+
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.searchInput {
+   width: 600px;/*calc(100% - (2 * var(--search-button-width)));*/
+   height: 35px;/*var(--search-bar-height);*/
+   border-radius: var(--border-radius);
+   padding-left: var(--padding);
+   text-align: center;
+}
+
+.searchButton {
+   width: var(--search-button-width);
+   height: var(--search-bar-height);
+   background-color:white; 
+   border-radius :var(--border-radius); 
+}
+
