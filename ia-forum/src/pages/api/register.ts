@@ -3,10 +3,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 const prisma = new PrismaClient()
 
-async function addUser(studentID: string, firstName: string, lastName: string, email: string, password: string) {
+async function addUser(studentId: string, firstName: string, lastName: string, email: string, password: string) {
   await prisma.user.create({
     data: {
-        student_id: parseInt(studentID),
+        student_id: parseInt(studentId),
         student_first_name: firstName,
         student_last_name: lastName,
         email: email,
