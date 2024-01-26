@@ -13,7 +13,8 @@
     "next": "14.1.0",
     "node": "^21.6.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -21,6 +22,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "init": "^0.1.2",
+    "prisma": "^5.8.1",
     "typescript": "^5"
   }
 }
