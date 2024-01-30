@@ -38,6 +38,8 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --nav-height: 50px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -71,6 +73,14 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
+}
+
+nav {
+  height: var(--nav-height);
+}
+
+main {
+  width: 100%;
 }
 
 * {
