@@ -3,9 +3,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 const prisma = new PrismaClient()
 
-async function addUser(studentId: string, firstName: string, lastName: string, email: string, password: string) {
+async function addUser(username: string, studentId: string, firstName: string, lastName: string, email: string, password: string) {
   await prisma.user.create({
     data: {
+        username: username,
         student_id: parseInt(studentId),
         student_first_name: firstName,
         student_last_name: lastName,
@@ -18,9 +19,9 @@ async function addUser(studentId: string, firstName: string, lastName: string, e
 
 export default function registrationHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const {studentId, firstName, lastName, email, password} = req.body;
+    const {username, studentId, firstName, lastName, email, password} = req.body;
 
-    addUser(studentId, firstName, lastName, email, password)
+    addUser(username, studentId, firstName, lastName, email, password)
     .then(async () => {
       await prisma.$disconnect()
     })

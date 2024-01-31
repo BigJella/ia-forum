@@ -9,6 +9,7 @@ generator client {
 
 model User {
   id    Int    @id @default(autoincrement())
+  username String
   student_id  Int?
   student_first_name  String
   student_last_name String
