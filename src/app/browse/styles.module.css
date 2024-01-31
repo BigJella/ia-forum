@@ -49,3 +49,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.previewlink {
+  color: inherit;
+  text-decoration: none;
+}
