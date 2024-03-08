@@ -37,6 +37,7 @@ export default function RegisterPage() {
 
     return (
     <div className={styles.formWrapper}>
+        <h1>Registration</h1>
         <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
             <input className="form-control" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} type="text"/>
             <input className="form-control" placeholder="Student ID" value={student_id} onChange={(e) => setStudentId(e.target.value)} type="number"/>
