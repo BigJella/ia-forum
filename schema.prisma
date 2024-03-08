@@ -8,29 +8,29 @@ generator client {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  username String
-  student_id  Int?
-  student_first_name  String
-  student_last_name String
-  email String @unique
-  posts Post[]
-  password  String
+  id         Int    @id @default(autoincrement())
+  username   String
+  student_id Int?
+  firstName  String
+  lastName   String
+  email      String @unique
+  posts      Post[]
+  password   String
 }
 
 model Category {
-  id  Int @id @default(autoincrement())
-  name String
+  id    Int    @id @default(autoincrement())
+  name  String
   posts Post[]
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
-  category  Category @relation(fields: [categoryId], references: [id])
-  categoryId  Int
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String?
+  published  Boolean  @default(false)
+  author     User     @relation(fields: [authorId], references: [id])
+  authorId   Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
 }

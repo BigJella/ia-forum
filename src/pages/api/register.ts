@@ -3,32 +3,31 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 const prisma = new PrismaClient()
 
-async function addUser(username: string, studentId: string, firstName: string, lastName: string, email: string, password: string) {
+async function addUser(username: string, student_id: number, firstName: string, lastName: string, email: string, password: string) {
   await prisma.user.create({
     data: {
-        username: username,
-        student_id: parseInt(studentId),
-        student_first_name: firstName,
-        student_last_name: lastName,
-        email: email,
+        username,
+        student_id,
+        firstName,
+        lastName,
+        email,
         posts: {},
-        password: password,
+        password,
       },
   })
 }
 
 export default function registrationHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const {username, studentId, firstName, lastName, email, password} = req.body;
-
-    addUser(username, studentId, firstName, lastName, email, password)
+    const {username, student_id, firstName, lastName, email, password} = req.body;
+    console.log(req.body)
+    addUser(username, parseInt(student_id), firstName, lastName, email, password)
     .then(async () => {
       await prisma.$disconnect()
     })
     .catch(async (e) => {
       console.error(e)
       await prisma.$disconnect()
-      process.exit(1)
     })
     res.status(201).redirect(201, "/login")
   } else {
