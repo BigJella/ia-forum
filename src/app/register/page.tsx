@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import styles from "./register.module.css";
 
 export default function RegisterPage() {
     const [username, setUsername] = useState("");
@@ -30,17 +31,21 @@ export default function RegisterPage() {
             },
             body: JSON.stringify(infoObj)
           });
-        // const content = await rawResponse.json();
-        // console.log(content);
+        const content = await rawResponse.json();
+        console.log(content);
     }
 
-    return <form onSubmit={(e) => handleSubmit(e)}>
-        <input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} type="text"/>
-        <input placeholder="Student ID" value={student_id} onChange={(e) => setStudentId(e.target.value)} type="number"/>
-        <input placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} type="text"/>
-        <input placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} type="text"/>
-        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} type="email"/>
-        <input placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} type="password"/>
-        <button type="submit">Submit</button>
-    </form>
+    return (
+    <div className={styles.formWrapper}>
+        <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
+            <input className="form-control" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} type="text"/>
+            <input className="form-control" placeholder="Student ID" value={student_id} onChange={(e) => setStudentId(e.target.value)} type="number"/>
+            <input className="form-control" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} type="text"/>
+            <input className="form-control" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} type="text"/>
+            <input className="form-control" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} type="email"/>
+            <input className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} type="password"/>
+            <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    )
 }
