@@ -26,10 +26,10 @@ export default function registrationHandler(req: NextApiRequest, res: NextApiRes
       await prisma.$disconnect()
     })
     .catch(async (e) => {
-      console.error(e)
       await prisma.$disconnect()
+      return res.json({"success": false, "message": e})
     })
-    res.status(201).redirect(201, "/login")
+    return res.json({"success": true, "message": "Registration Successful"})
   } else {
     res.status(302).redirect(302, "/register")
   }
